@@ -55,11 +55,10 @@ public class CalendarPrinter {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     boolean on = true;
-    while (on) {
-      System.out.println("Welcome to Calendar Printer.\n============================");
-      System.out.println("Enter the month to print: ");
+      System.out.println("Welcome to Calendar Printer.\n================================");
+      System.out.print("Enter the month to print: ");
       String month = sc.nextLine();
-      System.out.println("Enter the year to print: ");
+      System.out.print("Enter the year to print: ");
       String year = sc.nextLine();
       String[][] cal = generateCalendar(month, year);
       for (int i = 0; i < cal.length; i++) {
@@ -67,20 +66,7 @@ public class CalendarPrinter {
           System.out.print(cal[i][j]);
         }
       }
-      System.out.println("============================\n");
-      while (true) {
-        System.out.println("Again? (Y/N)");
-        month = sc.next();
-        sc.nextLine();
-        if (month.equalsIgnoreCase("y"))
-          break;
-        else if (month.equalsIgnoreCase("n")) {
-          on = false;
-          break;
-        }
-      }
-    }
-
+      System.out.println("================================\nThanks, and have a nice day.");
     sc.close();
   }
 
@@ -106,12 +92,6 @@ public class CalendarPrinter {
    * @return number of years since first year in the current century
    */
   public static int getYearWithinCentury(String year) {
-    // Correct to gregorian calendar implementation
-    // Centuries start the first day of the year 01; so the 21st century starys on Jan 1, 2001.
-    // int foo = Integer.parseInt(year);
-    // if (foo % 100 == 0)
-    // return 99;
-    // return foo % 100 - 1;
     return Integer.parseInt(year) % 100;
   }
 
